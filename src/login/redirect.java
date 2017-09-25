@@ -16,8 +16,8 @@ public class redirect extends HttpServlet {
 			response.sendRedirect("admin");
 			return;
 		}
-		if (request.isUserInRole("pai")) {
-			response.sendRedirect("pai");
+		if (request.isUserInRole("elemento")) {
+			response.sendRedirect("elemento");
 			return;
 		}
 

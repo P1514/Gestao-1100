@@ -71,7 +71,7 @@ body {
         <p><a onclick=javascript:checkSite();>Check to see if this website down for everyone or just you.</a>
           <script type="text/javascript">
               function checkSite(){
-                var currentSite = window.location.hostname;
+                var currentSite = window.location.origin;
                   window.location = "http://isup.me/" + currentSite;
               }
           </script></p>
