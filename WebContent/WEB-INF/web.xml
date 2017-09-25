@@ -43,8 +43,29 @@
 	</auth-constraint>
 </security-constraint>
 
+<error-page> 
+	<error-code>403</error-code>
+    <location>/error/403-error.html</location>
+</error-page>
 <error-page>
-    <location>/login.html</location>
+    <error-code>404</error-code>
+    <location>/error/404-error.html</location>
+</error-page>
+<error-page>
+    <error-code>500</error-code>
+    <location>/error/500-error.html</location>
+</error-page>
+<error-page>
+    <error-code>502</error-code>
+    <location>/error/502-error.html</location>
+</error-page>
+<error-page>
+    <error-code>503</error-code>
+    <location>/error/503-error.html</location>
+</error-page>
+<error-page>
+    <error-code>504</error-code>
+    <location>/error/504-error.html</location>
 </error-page>
 
 <login-config>
