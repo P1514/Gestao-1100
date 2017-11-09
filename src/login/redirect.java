@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class redirect extends HttpServlet {
 
@@ -21,15 +22,9 @@ public class redirect extends HttpServlet {
 			return;
 		}
 
-		try {
-			request.logout();
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		response.sendRedirect("pages?error=2");
-
+		HttpSession session=request.getSession();  
+		session.invalidate(); 
+		response.sendError(402);
 	}
 
 }

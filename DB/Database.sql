@@ -130,11 +130,11 @@ DROP TABLE IF EXISTS `user_roles`;
 CREATE TABLE `user_roles` (
   `id_user_roles` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(45) NOT NULL,
-  `user_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`user_name`),
+  `NIN` bigint(10) NOT NULL,
+  PRIMARY KEY (`NIN`),
   UNIQUE KEY `id_user_roles_UNIQUE` (`id_user_roles`),
-  CONSTRAINT `fk_user_roles_users` FOREIGN KEY (`user_name`) REFERENCES `users` (`user_name`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  CONSTRAINT `NIN` FOREIGN KEY (`NIN`) REFERENCES `users` (`NIN`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (6,'elemento','1234567890'),(5,'developer','dev'),(4,'admin','teste');
+INSERT INTO `user_roles` VALUES (8,'admin',1),(7,'elemento',2),(9,'teste3',3);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,11 +156,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(45) NOT NULL,
-  `password` varchar(90) NOT NULL,
-  PRIMARY KEY (`user_name`),
+  `NIN` bigint(10) NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `nome_users` varchar(45) NOT NULL,
+  PRIMARY KEY (`NIN`),
   UNIQUE KEY `id_users_UNIQUE` (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +170,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'1234567890','teste'),(2,'dev','devops'),(1,'teste','teste');
+INSERT INTO `users` VALUES (4,1,'74caf69164dd59034362715b10868a2a0e9bb5dc418b3d1b0a7ce83a2aa315fabb21aecd0f1ecd683271edc25b7a469022b8a21724d645d19f3096a97d8a9d93','gois'),(5,2,'1bd03a600f03344d0a33858b49111a13c5ab0e7ffe1266730666c65f2ee31752272a2bd1d2ed358e08098aa76e4772fdf92fee2121da3032c27171da8e5777dd','teste'),(6,3,'f099ad9f6c0069458521bb0d5014d806e0fa63419ccadd18bcdcecba8033435f053fb693ae385df01d8b3172a15550616cd6207782c676ab67ee3fdfc8050b93','teste2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-25 12:55:31
+-- Dump completed on 2017-09-26 23:15:13
